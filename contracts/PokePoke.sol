@@ -8,11 +8,11 @@ pragma solidity >=0.7.0 <0.9.0;
 contract PokePoke {
     struct Poke {
         uint timestamp; // block timestamp of the moment the poke occurred
+        address recipient; // who received the poke
         address pokedBy; // the sender of the poke
     }
 
     event PokeEvent (
-        address indexed to,
         Poke pokeData
     );
 
@@ -27,9 +27,10 @@ contract PokePoke {
         if (msg.sender == _pokeRecipient)
           revert SelfPokeAttempted();
 
-        Poke memory pokeData = Poke(block.timestamp, msg.sender);
+        Poke memory pokeData = Poke(block.timestamp, _pokeRecipient, msg.sender);
         pokes[_pokeRecipient].push(pokeData);
-        emit PokeEvent(_pokeRecipient, pokeData);
+        pokes[msg.sender].push(pokeData);
+        emit PokeEvent(pokeData);
     }
     
     /// @notice Returns array of pokes received for an address
