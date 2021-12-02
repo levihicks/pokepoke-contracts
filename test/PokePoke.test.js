@@ -6,15 +6,11 @@ contract("PokePoke", (accounts) => {
         instance = await PokePoke.deployed();
     });
 
-    it("can poke", async () => {
-        await instance.poke(accounts[1], { from: accounts[0] });
-        const recipientPokes = await instance.viewPokes(accounts[1]);
-        assert.equal(recipientPokes[0].pokedBy, accounts[0], "The sender of the poke should be shown in the recipient's list of pokes.");
-    });
-
     it("emits event properly upon poke", async () => {
         const tx = await instance.poke(accounts[1], { from: accounts[0] });
         assert.equal(tx.logs[0].event, 'PokeEvent', "A PokeEvent should be emitted.");
+        assert.equal(tx.logs[0].args.to, accounts[1], "Proper address should be poked.");
+        assert.equal(tx.logs[0].args.from, accounts[0], "Poke should be sent from proper address.");
     });
 
     it("triggers error when self-poke attempted", async () => {
