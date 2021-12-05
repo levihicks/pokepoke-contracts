@@ -1,0 +1,25 @@
+{
+  "name": "poke-poke-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levihicks/pokepoke-contracts.git"
+  },
+  "author": "Levi Hicks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/levihicks/pokepoke-contracts/issues"
+  },
+  "homepage": "https://github.com/levihicks/pokepoke-contracts#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.0"
+  }
+}

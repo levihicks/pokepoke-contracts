@@ -1788,6 +1788,12 @@
     "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xcdcE7E63d1121253Ab1e097E27aFe8d9cdd5BD94",
+      "transactionHash": "0xa217ed217f0494281645f32df6c6dd6ac7774585bf6a4b2c0e35005df8695aca"
+    },
     "5777": {
       "events": {},
       "links": {},
@@ -1796,7 +1802,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-02T02:03:03.404Z",
+  "updatedAt": "2021-12-05T17:58:51.100Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Levi Hicks",
